@@ -1,0 +1,26 @@
+<header>
+    <div class="left-header-container">
+        <div class="logo-container">
+            <a [routerLink]="['/Home']"><img src="/logo.svg" alt="logo"></a>
+            <a [routerLink]="['/Home']"><h1>UniBoard</h1></a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a [routerLink]="['/Directory']">Directory</a>
+                </li>
+                <li>
+                    <a href="">Review</a>
+                </li>
+                <li>
+                    <a href="">Announcemnents</a> 
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right-header-container">
+        <img class="search-icon" src="/icons/search-v1.svg" alt="">
+        <input class="search-bar" type="text" placeholder="Search">
+        <img class="ring-icon" src="icons/ring-v1.svg" alt="ring">
+    </div>
+</header>

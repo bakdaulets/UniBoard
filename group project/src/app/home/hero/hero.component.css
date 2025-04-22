@@ -1,0 +1,120 @@
+main {
+    background-color: #f6f4fe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 250px 100px;
+}
+
+.hero-header-container {
+    margin: 100px 0 20px;
+    text-align: center;
+}
+
+.hero-header-container h1 {
+    font-size: 64px;
+}
+
+.hero-header-container p {
+    margin: 0 120px;
+    font-size: 20px;
+}
+
+.search-box-container {
+    width: calc((100% - 2 * 100px) - 80px);
+    height: 500px;
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0 30px;
+}
+
+.search-box-container h2 {
+    font-size: 32px;
+    text-align: center;
+}
+
+.search-category-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f1f5f9;
+    height: 40px;
+    margin: 0 10px;
+    padding: 8px 0;
+    border-radius: 5px;
+}
+
+.search-category-container div {
+    border-radius: 5px;
+    padding: 10px 80px;
+}
+
+.search-category-container div:hover {
+    background-color: #fff;
+    transition: 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.hero-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0 0;
+}
+
+.name-department-input-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.name-input-container, .department-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name-input, .department-input {
+    border: 2px solid #d6d6d6;
+    border-radius: 5px;
+    padding: 10px 180px 10px 5px;
+}
+
+.interests-input-container {
+    width: calc(100% - 15px * 2);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.interests-input {
+    border: 2px solid #d6d6d6;
+    border-radius: 5px;
+    padding: 10px 0 10px 5px;
+}
+
+.hero-btn {
+    display: flex;
+    align-items: center;
+    background-color: #8132e9;
+    padding: 10px 30px 10px 15px;
+    gap: 10px;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.hero-btn svg {
+    width: 20px;
+    height: auto;
+} 
+
+.hero-btn:hover {
+    background-color: #772ed6;
+    cursor: pointer;
+}
+
+
+
