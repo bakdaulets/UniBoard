@@ -1,0 +1,46 @@
+main {
+    margin: 0 50px;
+    padding: 0 0 50px;
+}
+
+h1 {
+ text-align: center;
+ margin: 50px 0;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.find-people-card, .connect-card, .read-write-review-card, .announcement-card {
+    border: 1px solid #d6d6d6;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.find-logo-container, .connect-logo-container, .review-logo-container, .announcement-logo-container{
+    position: relative;
+    background-color: #f1eff5;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+svg {
+    position: absolute;
+    width: 20px;
+    height: auto;
+    top: 10px;
+    left: 10px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+p {
+    opacity: 70%;
+    margin: 30px 0 50px;
+}
