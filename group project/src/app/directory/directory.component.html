@@ -1,0 +1,99 @@
+<app-heading></app-heading>
+<main>
+    <h1>Университетский справочник</h1>
+    <div class="search-directory-container">
+        <h2>Поиск в справочнике</h2>
+        <div class="search-category-container">
+            <div 
+                [class.active]="searchCategory === 'people'" 
+                (click)="setCategory('people')"
+            >
+                Люди
+            </div>
+            <div 
+                [class.active]="searchCategory === 'courses'" 
+                (click)="setCategory('courses')"
+            >
+                Курсы
+            </div>
+            <div 
+                [class.active]="searchCategory === 'professors'" 
+                (click)="setCategory('professors')"
+            >
+                Преподаватели
+            </div>
+        </div>
+        <form class="directory-input-container" (ngSubmit)="onSearch()">
+            <div class="name-department-input-container">
+                <div class="name-input-container">
+                    <p>Имя/Название</p>
+                    <input 
+                        type="text" 
+                        placeholder="Введите имя или название"
+                        [(ngModel)]="searchParams.query"
+                        name="query"
+                    >
+                </div>
+                <div class="department-input-container">
+                    <p>Факультет</p>
+                    <input 
+                        type="text" 
+                        placeholder="Введите факультет"
+                        [(ngModel)]="searchParams.department"
+                        name="department"
+                    >
+                </div>
+            </div>
+            <div class="interests-input-container">
+                <p>Навыки или интересы</p>
+                <input 
+                    type="text" 
+                    placeholder="Программирование, Исследования, Дизайн..."
+                    [(ngModel)]="searchParams.interests"
+                    name="interests"
+                >
+            </div>
+            <button type="submit" class="search-button" [disabled]="isLoading">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                {{ isLoading ? 'Поиск...' : 'Искать ' + getBtnText() }}
+            </button>
+        </form>
+    </div>
+    
+    <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+    </div>
+    
+    <div class="result-output-container" *ngIf="searchResults.length > 0">
+        <h3>Результаты поиска</h3>
+        
+        <div *ngIf="searchCategory === 'people'" class="results-grid">
+            <div *ngFor="let student of searchResults" class="result-card">
+                <h4>{{ student.username || student.name }}</h4>
+                <p *ngIf="student.email">Email: {{ student.email }}</p>
+                <p *ngIf="student.department">Факультет: {{ student.department }}</p>
+                <p *ngIf="student.skills">Навыки: {{ student.skills }}</p>
+            </div>
+        </div>
+        
+        <div *ngIf="searchCategory === 'courses'" class="results-grid">
+            <div *ngFor="let course of searchResults" class="result-card">
+                <h4>{{ course.title }}</h4>
+                <p *ngIf="course.code">Код: {{ course.code }}</p>
+                <p *ngIf="course.department">Факультет: {{ course.department }}</p>
+                <p *ngIf="course.teacher_name">Преподаватель: {{ course.teacher_name }}</p>
+                <p *ngIf="course.description">{{ course.description }}</p>
+            </div>
+        </div>
+        
+        <div *ngIf="searchCategory === 'professors'" class="results-grid">
+            <div *ngFor="let teacher of searchResults" class="result-card">
+                <h4>{{ teacher.name }}</h4>
+                <p *ngIf="teacher.department">Факультет: {{ teacher.department }}</p>
+                <p *ngIf="teacher.courses && teacher.courses.length">
+                    Курсы: {{ teacher.courses.join(', ') }}
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
